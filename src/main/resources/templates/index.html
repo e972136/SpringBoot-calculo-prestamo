@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculo de cuotas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="p-5 bg-light rounded shadow mb-5"
+        style="background: url('/baner.svg') no-repeat center; background-size: contain">
+    <p>.
+    </p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+
+        <form th:action="@{/nuevo_calculo}" th:object="${calculo}" method="GET" >
+            <div class="mb-2">
+                <label for="monto" class="f-size17">Monto</label>
+                <input id="monto" style="font-size: 47px" th:field="*{monto}" type="number" placeholder="monto" class="form-control" th:errorClass="is-invalid">
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('monto')}" th:errors="*{monto}">x</small>
+            </div>
+            <div class="mb-2">
+                <label for="meses" class="f-size17">Plazo</label>
+                <input id="meses" style="font-size: 47px" th:field="*{meses}" type="number" placeholder="meses" class="form-control" th:errorClass="is-invalid">
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('meses')}" th:errors="*{meses}">xx</small>
+            </div>
+            <div class="mb-2">
+                <label for="interes" class="f-size17">Tasa</label>
+                <input id="interes" style="font-size: 47px" th:field="*{interes}" type="number" placeholder="interes" class="form-control" th:errorClass="is-invalid">
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('interes')}" th:errors="*{interes}">xxx</small>
+            </div>
+            <div class="mb-2">
+                <label for="pago" class="f-size17">Cuota</label>
+                <input id="pago" style="font-size: 47px" th:field="*{pago}" type="text" placeholder="pago" class="form-control" th:errorClass="is-invalid">
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('pago')}" th:errors="*{pago}">xxxx</small>
+            </div>
+
+<!--            <a href="/" class="btn btn-light me-2">Regresar</a>-->
+
+            <button class="btn btn-primary">
+                Calcular
+            </button>
+
+        </form>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<style>
+   .f-size17 {
+       font-size: 47px;
+   }
+</style>
+
+</body>
+</html>
